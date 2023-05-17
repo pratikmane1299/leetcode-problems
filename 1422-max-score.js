@@ -1,17 +1,33 @@
 function maxScore(s) {
-  let sumArr = 0;
+	const scores = [];
 
-	function calcuateSum(arr) {
-		return arr.reduce((acc, val) => (acc += +val), 0);
-	}
+  for (let i = 0; i < s.length - 1; i++) {
+    const left = s
+      .substring(0, i + 1)
+      .split("")
+      .reduce((acc, val) => {
+        if (val === "0") acc += 1;
+        return acc;
+      }, 0);
+    const right = s
+      .substring(i + 1)
+      .split("")
+      .reduce((acc, val) => {
+        if (val === "1") acc += 1;
+        return acc;
+      }, 0);
 
-  for (let i = 0; i < s.length; i++) {
-		sumArr +=
-      (calcuateSum(s.substring(i).split("")),
-      calcuateSum(s.substring(i + 1).split("")));
+    console.log({ left, right });
+
+    if (left !== undefined && right !== undefined) {
+      scores.push(left + right);
+    }
   }
 
-	console.log("sumArr - ", sumArr);
+	return Math.max(...scores);
 }
 
 console.log(maxScore("011101"));
+console.log(maxScore("00111"));
+console.log(maxScore("1111"));
+console.log(maxScore("00"));
