@@ -10,5 +10,5 @@ function repeatedCharacter(s) {
   }
 }
 
-console.log(repeatedCharacter("abccbaacz"));
+console.log(repeatedCharacter("do"));
 console.log(repeatedCharacter("abcdd"));

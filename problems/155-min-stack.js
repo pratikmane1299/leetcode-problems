@@ -1,3 +1,10 @@
+/**
+ * @title Min Stack
+ * @description Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+ * @tags Stack, Design
+ * @difficulty Medium
+ */
+
 class MinStack {
   stack = [];
 
@@ -16,17 +23,17 @@ class MinStack {
   }
 
   getMin() {
-		return Math.min(...this.stack);
-	}
+    return Math.min(...this.stack);
+  }
 }
 
 const stack = new MinStack();
 
 stack.push(1);
 stack.push(2);
-console.log(stack.top())
+console.log(stack.top());
 stack.push(-10);
-console.log(stack.top())
+console.log(stack.top());
 console.log(stack.getMin());
 stack.pop();
 console.log(stack.getMin());
