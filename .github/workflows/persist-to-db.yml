@@ -22,11 +22,9 @@ jobs:
         run: |
           touch .env
           echo DATABASE_URL=${{ vars.DATABASE_URL }} >> .env
-          echo DIRECT_URL=${{ secrets.DIRECT_URL }} >> .env
-          echo SHADOW_DATABASE_URL=${{ secrets.SHADOW_DATABASE_URL }} >> .env
-          echo UPSTASH_REDIS_REST_URL=${{ secrets.UPSTASH_REDIS_REST_URL }} >> .env
-          echo UPSTASH_REDIS_REST_TOKEN=${{ secrets.UPSTASH_REDIS_REST_TOKEN }} >> .env
-          cat .env
-      
-#       - name: Run script.
-#         run: yarn save-to-db
+          echo DIRECT_URL=${{ vars.DIRECT_URL }} >> .env
+          echo SHADOW_DATABASE_URL=${{ vars.SHADOW_DATABASE_URL }} >> .env
+          echo UPSTASH_REDIS_REST_URL=${{ vars.UPSTASH_REDIS_REST_URL }} >> .env
+          echo UPSTASH_REDIS_REST_TOKEN=${{ vars.UPSTASH_REDIS_REST_TOKEN }} >> .env
+      - name: Run script.
+        run: yarn save-to-db
