@@ -1,0 +1,23 @@
+name: 'Save problems to db'
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  save-to-db:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-verson: 18.x
+          cache: npm
+      - name: Install deps
+        run: npm ci
+      
+      - name: Run script.
+        run: DATABASE_URL=${{ env.UPSTASH_REDIS_REST_URL }} UPSTASH_REDIS_REST_URL=${{env.UPSTASH_REDIS_REST_URL}} UPSTASH_REDIS_REST_TOKEN=${{env.UPSTASH_REDIS_REST_TOKEN}} CI=true yarn save-to-db
