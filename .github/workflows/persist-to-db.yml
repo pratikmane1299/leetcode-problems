@@ -26,8 +26,7 @@ jobs:
           echo SHADOW_DATABASE_URL=${{ secrets.SHADOW_DATABASE_URL }} >> .env
           echo UPSTASH_REDIS_REST_URL=${{ secrets.UPSTASH_REDIS_REST_URL }} >> .env
           echo UPSTASH_REDIS_REST_TOKEN=${{ secrets.UPSTASH_REDIS_REST_TOKEN }} >> .env
-          echo "cat .env"
+          cat .env
       
 #       - name: Run script.
-#         run: echo ${{ env.DATABASE_URL }}
-#         run: DATABASE_URL=${{ env.DATABASE_URL }} DIRECT_URL=${{ env.DIRECT_URL }} SHADOW_DATABASE_URL=${{ env.SHADOW_DATABASE_URL }} UPSTASH_REDIS_REST_URL=${{env.UPSTASH_REDIS_REST_URL}} UPSTASH_REDIS_REST_TOKEN=${{env.UPSTASH_REDIS_REST_TOKEN}} CI=true yarn save-to-db
+#         run: yarn save-to-db
