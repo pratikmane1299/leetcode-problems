@@ -21,7 +21,7 @@ jobs:
       - name: create env file
         run: |
           touch .env
-          echo DATABASE_URL=${{ secrets.DATABASE_URL }} >> .env
+          echo DATABASE_URL=${{ vars.DATABASE_URL }} >> .env
           echo DIRECT_URL=${{ secrets.DIRECT_URL }} >> .env
           echo SHADOW_DATABASE_URL=${{ secrets.SHADOW_DATABASE_URL }} >> .env
           echo UPSTASH_REDIS_REST_URL=${{ secrets.UPSTASH_REDIS_REST_URL }} >> .env
