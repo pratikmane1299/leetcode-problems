@@ -5,7 +5,7 @@
   "main": "1207-unique-occurences.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "save-to-db": "node script.js"
+		"save-to-db": "node script.mjs"
   },
   "repository": {
     "type": "git",
