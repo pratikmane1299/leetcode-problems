@@ -27,4 +27,4 @@ jobs:
           echo UPSTASH_REDIS_REST_URL=${{ vars.UPSTASH_REDIS_REST_URL }} >> .env
           echo UPSTASH_REDIS_REST_TOKEN=${{ vars.UPSTASH_REDIS_REST_TOKEN }} >> .env
       - name: Run script.
-        run: yarn save-to-db
+        run: DATABASE_URL=${{ vars.DATABASE_URL }} DIRECT_URL=${{ vars.DIRECT_URL }} SHADOW_DATABASE_URL=${{ vars.SHADOW_DATABASE_URL }} UPSTASH_REDIS_REST_URL=${{vars.UPSTASH_REDIS_REST_URL}} UPSTASH_REDIS_REST_TOKEN=${{vars.UPSTASH_REDIS_REST_TOKEN}}  yarn save-to-db
