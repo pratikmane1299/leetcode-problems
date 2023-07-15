@@ -5,7 +5,7 @@
   "main": "1207-unique-occurences.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-		"save-to-db": "node script.mjs"
+    "save-to-db": "node script.mjs"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
     "@prisma/client": "4.15.0",
     "@upstash/redis": "^1.21.0",
     "chalk": "^5.2.0",
-    "node-fetch": "^3.3.1"
+    "node-fetch": "^3.3.1",
+    "turndown": "^7.1.2"
   }
 }

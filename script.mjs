@@ -6,6 +6,13 @@ import { PrismaClient } from "@prisma/client";
 import { Redis } from "@upstash/redis";
 import chalk from "chalk";
 
+import TurndownService from "turndown";
+
+const turndown = new TurndownService({
+  codeBlockStyle: "fenced",
+  fence: "```",
+});
+
 const redis = Redis.fromEnv();
 
 const __filename = fileURLToPath(import.meta.url);
@@ -275,10 +282,11 @@ async function readFolder() {
             console.log(chalk.yellow("-------Begin: Questions-------"));
             const question = await findOrCreateQuestion({
               title: questionDetails.question.title,
-              description: questionDetails.content,
+              // description: questionDetails.content,
+              description: turndown.turndown(questionDetails.content),
               number: +number,
               slug: questionDetails.question.titleSlug,
-              code,
+              code: "```js\n" + code + "\n```",
               difficultyId: difficulty.id,
               tags: {
                 create: tags.map(({ id }) => ({
